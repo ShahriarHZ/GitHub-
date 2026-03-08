@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payoo | Login</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      font-family: "Outfit", sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen max-w-md bg-base-200 mx-auto">
+
+  <div class="text-center space-y-4">
+    <img src="./assets/github-logo.png" class="w-[100px] mx-auto pt-52" alt="Git Logo" />
+    <h2 class="text-2xl font-bold">GitHub Issues Tracker</h2>
+    <p class="text-gray-600">Sign in to manage your issues</p>
+  </div>
+
+  <div class="form pt-32">
+    <fieldset class="fieldset bg-base-100 border-base-300 rounded-xl w-xs mx-auto p-4">
+      <legend class="fieldset-legend">Login</legend>
+
+      <label class="label text-neutral font-bold text-xl">Username</label>
+      <input id="number-input" type="text" class="input rounded-xl" placeholder="Enter your name" />
+
+      <label class="label text-neutral font-bold text-xl">Password</label>
+      <input id="pin-input"  type="password" class="input rounded-xl" placeholder="Enter your password" />
+
+      <button id="login-btn" class="btn btn-neutral mt-4 rounded-full">Login</button>
+    </fieldset>
+  </div>
+
+  <script src="login.js"></script>
+</body>
+</html>

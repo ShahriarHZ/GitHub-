@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Issue Tracker</title>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <style>
+    * { font-family: "Outfit", sans-serif; }
+    body { background-color: #F8FAFC; }
+  </style>
+</head>
+<body>
+
+  <header class="sticky top-0 z-50">
+    <nav class="navbar bg-white shadow-sm px-4 md:px-8 border-b border-gray-100">
+      <div class="flex-1 flex items-center gap-3">
+        <img src="./assets/github-logo.png" alt="GitHub Logo" class="w-10 h-10 object-contain">
+        <h2 class="text-2xl font-bold hidden sm:block text-slate-800">GitHub Issues Tracker</h2>
+      </div>
+      <div class="flex-none flex items-center gap-4">
+        <div class="form-control">
+          <input id="search-input" type="text" placeholder="Search issues..." class="input input-bordered w-32 md:w-auto" />
+        </div>
+        <button class="btn btn-primary bg-[#5D20F0] border-none px-6">
+          <span class="text-lg">+</span> New Issue
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <section class="w-11/12 mx-auto bg-white border border-gray-100 px-14 py-8 mt-10 rounded-2xl shadow-sm">
+    <div class="flex justify-center space-x-4">
+      <button id="btn-all" class="btn btn-primary px-10" onclick="filterIssues('all')">All</button>
+      <button id="btn-open" class="btn px-10" onclick="filterIssues('open')">Open</button>
+      <button id="btn-closed" class="btn px-10" onclick="filterIssues('closed')">Closed</button>
+    </div>
+  </section>
+
+  <section class="w-11/12 mx-auto bg-white border border-gray-100 px-14 py-6 flex justify-between items-center my-6 rounded-2xl shadow-sm">
+    <div class="flex items-center gap-4">
+      <div class="p-3 bg-purple-50 rounded-xl">
+        <img src="./assets/Aperture.png" alt="Icon" class="w-6 h-6">
+      </div>
+      <div>
+        <h2 id="IssueNumber" class="text-xl font-bold text-slate-800">0 Issues</h2>
+        <p class="text-sm text-gray-400">Track and manage your project issues</p>
+      </div>
+    </div>
+    <div class="flex gap-6 items-center font-medium text-slate-600">
+      <div class="flex items-center gap-2">
+        <input type="radio" id="radio-open" name="status-radio" class="radio radio-success radio-sm" onclick="filterIssues('open')" />
+        <label for="radio-open">Open</label>
+      </div>
+      <div class="flex items-center gap-2">
+        <input type="radio" id="radio-closed" name="status-radio" class="radio radio-error radio-sm" onclick="filterIssues('closed')" />
+        <label for="radio-closed">Closed</label>
+      </div>
+    </div>
+  </section>
+
+  <section id="issue-container" class="w-11/12 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pb-20">
+  </section>
+
+  <dialog id="issue_modal" class="modal">
+    <div class="modal-box w-11/12 max-w-2xl p-8 rounded-3xl">
+      <div id="modal-content">
+        </div>
+      <div class="modal-action mt-8">
+        <form method="dialog">
+          <button class="btn bg-[#5D20F0] hover:bg-[#4a19c1] text-white px-10 rounded-xl border-none">Close</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop bg-slate-900/50 backdrop-blur-sm">
+      <button>close</button>
+    </form>
+  </dialog>
+
+  <script src="home.js"></script>
+</body>
+</html>
